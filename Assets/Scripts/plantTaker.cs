@@ -7,9 +7,9 @@ public class plantTaker : MonoBehaviour, IInteractible
 {
     bool takesPlants = true;
     GameObject obtainedPlant;
+    GameObject lavenderPlant;
     public bool CanInteract()
     {
-        // throw new NotImplementedException();
         return takesPlants;
     }
 
@@ -23,16 +23,25 @@ public class plantTaker : MonoBehaviour, IInteractible
         }
         else{
             Debug.Log("There is a plant");
+            switch(obtainedPlant.name){
+                case "Lavender(Clone)":
+                    Debug.Log("it is a lavender");
+                    lavenderPlant.transform.GetChild(0).gameObject.SetActive(true);
+                    break;
+                default:
+                    Debug.Log("default");
+                    break;
+            }
             Destroy(obtainedPlant);
         }
         
     }
 
     // Start is called before the first frame update
-    // void Start()
-    // {
-        
-    // }
+    void Start()
+    {
+        lavenderPlant = GameObject.FindGameObjectWithTag("Lavender");
+    }
 
     // Update is called once per frame
     // void Update()
