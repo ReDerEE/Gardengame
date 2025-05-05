@@ -8,6 +8,7 @@ public class plantTaker : MonoBehaviour, IInteractible
     bool takesPlants = true;
     GameObject obtainedPlant;
     GameObject lavenderPlant;
+    GameObject parsleyPlant;
     public bool CanInteract()
     {
         return takesPlants;
@@ -28,6 +29,11 @@ public class plantTaker : MonoBehaviour, IInteractible
                     Debug.Log("it is a lavender");
                     lavenderPlant.transform.GetChild(0).gameObject.SetActive(true);
                     break;
+                case "Petersell(Clone)":
+                    Debug.Log("There is a parsley");
+                    parsleyPlant.transform.GetChild(0).gameObject.SetActive(true);
+                    break;
+
                 default:
                     Debug.Log("default");
                     break;
@@ -41,6 +47,7 @@ public class plantTaker : MonoBehaviour, IInteractible
     void Start()
     {
         lavenderPlant = GameObject.FindGameObjectWithTag("Lavender");
+        parsleyPlant = GameObject.FindGameObjectWithTag("Parsley");
     }
 
     // Update is called once per frame
