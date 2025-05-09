@@ -144,6 +144,8 @@ void DisplayCurrentLine(){
                 player = GameObject.FindGameObjectWithTag("Player");
 
                 GameObject obtainedPlant = Instantiate(plantPrefab, player.transform.position + Vector3.up, Quaternion.identity);
+                Debug.Log(player.transform.position);
+                Debug.Log(player.transform.position + Vector3.up);
                 obtainedPlant.transform.SetParent(player.transform);
                 //GameObject droppedItem = Instantiate(plantPrefab, this.transform);
                 hasGivenPlant = true;
